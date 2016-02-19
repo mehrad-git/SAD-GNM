@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<body style="text-align:center;background-color:#b8b894"><center><h1>صفحه کارشناس</h1></center>
+
+<p align="center">
+<a href="karshenas.html">صفحه اصلی</a> |
+<a href="search.html">جستجو</a> |
+<a href="contact.html">پشتیبانی</a> |
+<a href="login.html">خروج</a>
+</p>
+
+<p>اظهارنامه ۱۰۲۳</p>
+<p> نام و نام خانوادگی: غلام غلامی<br>
+	شناسه: ۲۱۵۰۴۰۴۵۲۴<br>کشور مبدا: ترکیه<br>نحوه ي ورود به کشور: زمینی<br>
+	ارزش کالا به دلار: $۵۰۰<br>تاريخ اظهار نامه: ۱۳۹۴.۱۱.۳۰<br>نام کالا: گندم<br>
+	شرکت توليدکننده کالا: پیشاور<br>وزن کالا: ۵۰ کیلو<br>تعداد کالا: ۵ بسته<br>قيمت واحد کالا به دلار: $۱۰۰</p>
+<p >:مجوزهای مورد نیاز</p>
+
+<label><input type="checkbox" id="cbox1" value="first_checkbox"> مجوز ۱۰۲ از وزارت صنعت و معدن</label><br>
+
+<input type="checkbox" id="cbox2" value="second_checkbox"> <label for="cbox2"> مجوز ۰۳۱ از وزارت کشاورزی
+</label><br><br>
+<button onclick="investigate(cbox1,cbox2)">بررسی تطابق با قوانین جدید</button>
+
+<p id="demo1"></p><br>
+<button onclick="returnToHome()">تایید</button>
+
+<script>
+function investigate(checkbox1,checkbox2) {
+    var x;
+    if (checkbox1.checked && checkbox2.checked) {
+        x = "!بررسی با موفقیت انجام شد";
+    } else {
+        x = "!هنوز همه ی مجوز های مورد نیاز صادر نشده";
+    }
+    document.getElementById("demo1").innerHTML = x;
+}
+function returnToHome(){
+	window.location="karshenas.html";
+}
+</script>
+
+
+</body>
+
+</html>
