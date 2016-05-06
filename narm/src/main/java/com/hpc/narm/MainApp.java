@@ -9,6 +9,17 @@ import javafx.stage.Stage;
 
 
 public class MainApp extends Application {
+    
+    private static Empolyee who;
+    public static Querier q=new Querier();
+    
+    public static void setWho(Empolyee emp){
+        who=emp;
+    }
+    
+    public static Empolyee getWho(){
+        return who;
+    }
 
     @Override
     public void start(Stage stage) throws Exception {
