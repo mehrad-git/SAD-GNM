@@ -36,18 +36,20 @@ public class FXMLController implements Initializable {
     
     //for login!
     @FXML
-    private void log_in(javafx.event.ActionEvent event){
+    private void log_in(javafx.event.ActionEvent event) throws IOException{
         String username = userField.getText();
         String password = passField.getText();
         if (Login.empolyee_login(username, password)==1)
             error.setVisible(true);
         else {
             error.setVisible(false);
+            MainApp.getMain().changeScene("karshenas");
         }
     }
     
     
     public void initialize(URL url, ResourceBundle rb){
         error.setVisible(false);
+        
     }    
 }

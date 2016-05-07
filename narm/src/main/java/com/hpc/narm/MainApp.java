@@ -1,5 +1,6 @@
 package com.hpc.narm;
 
+import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -12,23 +13,40 @@ public class MainApp extends Application {
     
     private static Empolyee who;
     public static Querier q=new Querier();
-    
+    private static Stage st;
+    private static MainApp instance;
     public static void setWho(Empolyee emp){
         who=emp;
+    }
+    
+    public static MainApp getMain(){
+        return instance;
     }
     
     public static Empolyee getWho(){
         return who;
     }
 
+     void changeScene(String where) throws IOException {
+        if ("karshenas".equals(where)){
+            Parent kareshenas = FXMLLoader.load(getClass().getResource("/fxml/ezharname.fxml"));
+            Scene scene = new Scene(kareshenas);
+            scene.getStylesheets().add("/styles/Styles.css");
+            st.setTitle("گمرک عقابستان");
+            st.setScene(scene);
+            st.show();
+        }    
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
-        
+        instance=this;
+        st=stage;
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
         
-        stage.setTitle("JavaFX and Maven");
+        stage.setTitle("گمرک عقابستان");
         stage.setScene(scene);
         stage.show();
     }
