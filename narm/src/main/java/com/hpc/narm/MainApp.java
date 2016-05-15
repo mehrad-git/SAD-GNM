@@ -15,8 +15,17 @@ public class MainApp extends Application {
     public static Querier q=new Querier();
     private static Stage st;
     private static MainApp instance;
+    private Object current;
     public static void setWho(Empolyee emp){
         who=emp;
+    }
+    
+    //public void set_current(Object o){
+    //    current=o;
+    //}
+    
+    public Object get_current(){
+        return current;
     }
     
     public static MainApp getMain(){
@@ -29,10 +38,11 @@ public class MainApp extends Application {
 
      void changeScene(String where) throws IOException {
         if ("karshenas".equals(where)){
+            current=new Ezharname();
             Parent kareshenas = FXMLLoader.load(getClass().getResource("/fxml/ezharname.fxml"));
             Scene scene = new Scene(kareshenas);
             scene.getStylesheets().add("/styles/Styles.css");
-            st.setTitle("گمرک عقابستان");
+            st.setTitle("گمرک مرکزی هرات،جمهوری افغانستان");
             st.setScene(scene);
             st.show();
         }    
@@ -46,7 +56,7 @@ public class MainApp extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
         
-        stage.setTitle("گمرک عقابستان");
+        stage.setTitle("گمرک مرکزی اوغانستان-هرات");
         stage.setScene(scene);
         stage.show();
     }

@@ -16,14 +16,10 @@
         <Button fx:id="button" layoutX="338.0" layoutY="568.0" text="licenses" />
       <TextField fx:id="name" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="303.0" />
       <TextField fx:id="fname" layoutX="14.0" layoutY="49.0" prefHeight="25.0" prefWidth="303.0" />
-      <TextField fx:id="id" layoutX="14.0" layoutY="81.0" prefHeight="25.0" prefWidth="303.0" />
-      <TextField fx:id="way" layoutX="14.0" layoutY="112.0" prefHeight="25.0" prefWidth="303.0" />
       <TextField fx:id="cost" layoutX="14.0" layoutY="144.0" prefHeight="25.0" prefWidth="303.0" />
       <TextField fx:id="country" layoutX="14.0" layoutY="177.0" prefHeight="25.0" prefWidth="303.0" />
       <Label layoutX="332.0" layoutY="18.0" prefHeight="17.0" prefWidth="65.0" text="name" />
       <Label layoutX="334.0" layoutY="53.0" text="family name" />
-      <Label layoutX="334.0" layoutY="85.0" text="id number" />
-      <Label layoutX="334.0" layoutY="116.0" text="way" />
       <Label layoutX="334.0" layoutY="148.0" prefHeight="17.0" prefWidth="28.0" text="cost" />
       <Label layoutX="334.0" layoutY="181.0" text="country " />
       <DatePicker fx:id="date" layoutX="14.0" layoutY="214.0" prefHeight="25.0" prefWidth="303.0" />
@@ -32,17 +28,17 @@
       <TextField fx:id="number" layoutX="14.0" layoutY="250.0" prefWidth="303.0" />
       <Button layoutX="251.0" layoutY="568.0" mnemonicParsing="false" onAction="#sabt" prefHeight="25.0" prefWidth="55.0" text="save" />
       <Button layoutX="166.0" layoutY="568.0" mnemonicParsing="false" onAction="#cancel" text="cancel" />
-      <TextField layoutX="14.0" layoutY="312.0" prefHeight="25.0" prefWidth="303.0" />
-      <TextField layoutX="14.0" layoutY="344.0" prefHeight="25.0" prefWidth="303.0" />
-      <TextField layoutX="14.0" layoutY="379.0" prefHeight="25.0" prefWidth="303.0" />
-      <TextField layoutX="14.0" layoutY="414.0" prefHeight="25.0" prefWidth="303.0" />
-      <TextField layoutX="14.0" layoutY="452.0" prefHeight="25.0" prefWidth="303.0" />
+      <TextField fx:id="mname" layoutX="14.0" layoutY="312.0" prefHeight="25.0" prefWidth="303.0" />
+      <TextField fx:id="mcompany" layoutX="14.0" layoutY="344.0" prefHeight="25.0" prefWidth="303.0" />
+      <TextField fx:id="mmass" layoutX="14.0" layoutY="379.0" prefHeight="25.0" prefWidth="303.0" />
+      <TextField fx:id="mnumber" layoutX="14.0" layoutY="414.0" prefHeight="25.0" prefWidth="303.0" />
+      <TextField fx:id="mprice" layoutX="14.0" layoutY="452.0" prefHeight="25.0" prefWidth="303.0" />
       <Label layoutX="334.0" layoutY="316.0" text="ware name" />
       <Label layoutX="334.0" layoutY="348.0" text="company" />
       <Label layoutX="334.0" layoutY="383.0" text="mass" />
       <Label layoutX="334.0" layoutY="418.0" text="number" />
       <Label layoutX="334.0" layoutY="456.0" text="price" />
-      <Button layoutX="207.0" layoutY="501.0" mnemonicParsing="false" text="add another ware" />
+      <Button layoutX="207.0" layoutY="501.0" mnemonicParsing="false" onAction="#addway" text="add another ware" />
       <Pane fx:id="message" layoutX="7.0" layoutY="10.0" prefHeight="591.0" prefWidth="420.0">
          <children>
             <Button layoutX="171.0" layoutY="336.0" mnemonicParsing="false" onAction="#cancel" text="بازگشت" />

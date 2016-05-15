@@ -3,6 +3,7 @@ package com.hpc.narm;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,8 +18,9 @@ import javafx.scene.layout.Pane;
 
 public class FXMLController2 implements Initializable {
     
+    
     @FXML
-    private TextField name,fname,id,way,cost,country,number;
+    private TextField name,fname,id,way,cost,country,number,mname,mnumber,mmass,mcompany,mprice;
     @FXML
     private DatePicker date;
     
@@ -27,10 +29,26 @@ public class FXMLController2 implements Initializable {
     
     @FXML
     private void sabt(ActionEvent event){
-        Ezharname ez = new Ezharname(name.getText(),fname.getText(), Integer.valueOf(id.getText()),way.getText(),Long.valueOf(cost.getText()), country.getText(),number.getText(),date.getValue().toString());
+        Ezharname ez=(Ezharname) MainApp.getMain().get_current();
+        ez.setEzharname(name.getText(),fname.getText(), country.getText(),number.getText(),date.getValue().toString());
+        ez.estimateCost();
         if (ez.sabt()==0)
             message.setVisible(true);
     }
+    
+    @FXML
+    private void addway(ActionEvent event){
+        Ezharname ez=(Ezharname) MainApp.getMain().get_current();
+        Mahmoole temp=new Mahmoole(mname.getText(),mcompany.getText(),Double.valueOf(mmass.getText()), mnumber.getText(), Long.valueOf(mprice.getText()));
+        ez.addMahmoole(temp);
+        mname.clear();
+        mcompany.clear();
+        mmass.clear();
+        mnumber.clear();
+        mprice.clear();
+        cost.setText(String.valueOf(ez.estimateCost()));
+    }
+    
     @FXML
     private void cancel(ActionEvent event) throws IOException{
         MainApp.getMain().changeScene("karshenas");

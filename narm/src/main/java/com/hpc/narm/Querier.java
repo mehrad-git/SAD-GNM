@@ -48,4 +48,13 @@ public class Querier {
             return null;
         }
     }
+    
+    public PreparedStatement getPST(String query,int x){
+        try {
+            return con.prepareStatement(query,x);
+        } catch (SQLException ex){
+            System.out.print("error getting prepared statement: "+ex.getLocalizedMessage());
+            return null;
+        }
+    }
 }
