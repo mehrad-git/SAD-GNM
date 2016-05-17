@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hpc.narm.FXMLRegisterController">
+   <children>
+      <TextField fx:id="name" layoutX="311.0" layoutY="61.0" />
+      <TextField fx:id="lastname" layoutX="311.0" layoutY="97.0" />
+      <TextField fx:id="user" layoutX="311.0" layoutY="133.0" />
+      <Label layoutX="512.0" layoutY="66.0" text="نام" />
+      <Label layoutX="489.0" layoutY="102.0" text="نام خانوادگی" />
+      <Label layoutX="494.0" layoutY="138.0" text="نام کاربری(شناسه)" />
+      <Label layoutX="495.0" layoutY="179.0" text="رمز عبور" />
+      <Label layoutX="495.0" layoutY="214.0" text="تکرار رمز عبور" />
+      <TextField fx:id="role" layoutX="311.0" layoutY="248.0" />
+      <Label layoutX="495.0" layoutY="253.0" text="ایفاگر نقش:" />
+      <Button layoutX="311.0" layoutY="318.0" mnemonicParsing="false" onAction="#register" text="ثبت نام" />
+      <Button layoutX="383.0" layoutY="318.0" mnemonicParsing="false" onAction="#cancel" text="بازگشت به صفحه اصلی" />
+      <PasswordField fx:id="pass" layoutX="311.0" layoutY="174.0" />
+      <PasswordField fx:id="repass" layoutX="311.0" layoutY="209.0" />
+      <Label fx:id="pass_err" layoutX="107.0" layoutY="214.0" text="رمز عبورو تکرار آن همخوانی ندارند!" textFill="#fc0000" />
+      <Label fx:id="general_err" layoutX="54.0" layoutY="257.0" prefHeight="48.0" prefWidth="225.0" text="ثبت نام با اطلاعات وارد شده امکان پذیر نمیباشد!" />
+      <Label fx:id="success" layoutX="130.0" layoutY="310.0" prefHeight="16.0" prefWidth="132.0" text="ثبت نام با موفقیت انجام شد!" />
+   </children>
+</AnchorPane>
