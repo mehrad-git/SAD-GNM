@@ -14,5 +14,6 @@
       <Button layoutX="153.0" layoutY="180.0" mnemonicParsing="false" onAction="#log_in" text="ورود" />
       <PasswordField fx:id="passField" layoutX="115.0" layoutY="126.0" />
       <Label fx:id="error" layoutX="267.0" layoutY="185.0" prefHeight="57.0" prefWidth="185.0" text="نام کاربری یا رمز عبور اشتباه" />
+      <Button layoutX="47.0" layoutY="250.0" mnemonicParsing="false" onAction="#go_register" prefHeight="26.0" prefWidth="94.0" text="ثبت نام" />
    </children>
 </AnchorPane>

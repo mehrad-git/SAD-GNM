@@ -45,7 +45,24 @@ public class MainApp extends Application {
             st.setTitle("گمرک مرکزی هرات،جمهوری افغانستان");
             st.setScene(scene);
             st.show();
-        }    
+        }
+        else if ("register".equals(where)){
+            Parent register = FXMLLoader.load(getClass().getResource("/fxml/register.fxml"));
+            Scene scene = new Scene(register);
+            scene.getStylesheets().add("/styles/Styles.css");
+            st.setTitle("گمرک مرکزی هرات،جمهوری افغانستان");
+            st.setScene(scene);
+            st.show();
+        }
+        
+        else if ("main".equals(where)){
+            Parent main = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
+            Scene scene = new Scene(main);
+            scene.getStylesheets().add("/styles/Styles.css");
+            st.setTitle("گمرک مرکزی هرات،جمهوری افغانستان");
+            st.setScene(scene);
+            st.show();
+        }
     }
 
     @Override

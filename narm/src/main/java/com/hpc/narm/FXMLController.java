@@ -47,6 +47,10 @@ public class FXMLController implements Initializable {
         }
     }
     
+    @FXML
+    private void go_register(ActionEvent event) throws IOException{
+        MainApp.getMain().changeScene("register");
+    }
     
     public void initialize(URL url, ResourceBundle rb){
         error.setVisible(false);
