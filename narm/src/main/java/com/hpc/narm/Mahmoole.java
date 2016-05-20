@@ -31,6 +31,26 @@ public class Mahmoole {
         return (long)(price*mass);
     }
     
+    public String getName(){
+        return name;
+    }
+    
+    public String getCompany(){
+        return company;
+    }
+    
+    public double getMass(){
+        return mass;
+    }
+    
+    public String getNumber(){
+        return number;
+    }
+    
+    public long pricePerMass(){
+        return price;
+    }
+    
     public void  sabt(int id){
         java.sql.PreparedStatement pst=MainApp.q.getPST("insert into bar (name,company,mass,number,price,ezharid) values(?,?,?,?,?,?);");
         try{

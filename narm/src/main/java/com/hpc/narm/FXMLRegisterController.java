@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class FXMLRegisterController implements Initializable {
+//
     @FXML
     private PasswordField pass,repass;
     @FXML
@@ -43,10 +44,12 @@ public class FXMLRegisterController implements Initializable {
         else
             general_err.setVisible(true);
     }
+    
 
     public void initialize(URL url, ResourceBundle rb){
         general_err.setVisible(false);
         pass_err.setVisible(false);
         success.setVisible(false);
     }
+    
 }

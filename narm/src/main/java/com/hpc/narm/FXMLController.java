@@ -52,6 +52,11 @@ public class FXMLController implements Initializable {
         MainApp.getMain().changeScene("register");
     }
     
+    @FXML
+    private void test(ActionEvent event) throws IOException{
+        MainApp.getMain().changeScene("mojavezRule");
+    }
+    
     public void initialize(URL url, ResourceBundle rb){
         error.setVisible(false);
         

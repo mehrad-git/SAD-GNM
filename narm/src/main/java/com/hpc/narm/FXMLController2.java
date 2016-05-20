@@ -18,7 +18,7 @@ import javafx.scene.layout.Pane;
 
 public class FXMLController2 implements Initializable {
     
-    
+    private boolean old=false;
     @FXML
     private TextField name,fname,id,way,cost,country,number,mname,mnumber,mmass,mcompany,mprice;
     @FXML
@@ -54,8 +54,25 @@ public class FXMLController2 implements Initializable {
         MainApp.getMain().changeScene("karshenas");
     }
     
+    @FXML
+    private void l(ActionEvent event) throws IOException{
+        if (old)
+            MainApp.getMain().changeScene("mojavez-old");
+        else{
+            Ezharname ez=(Ezharname) MainApp.getMain().get_current();
+            ez.setEzharname(name.getText(),fname.getText(), country.getText(),number.getText(),date.getValue().toString());
+            ez.searchRules();
+            MainApp.getMain().changeScene("mojavez-new");
+        }
+    }
     
+    @Override
     public void initialize(URL url, ResourceBundle rb){
         message.setVisible(false);
-    }    
+        old=false;
+    }
+
+    public void setOld(){
+        old=true;
+    }
 }

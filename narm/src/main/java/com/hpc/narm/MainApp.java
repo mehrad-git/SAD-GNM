@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 public class MainApp extends Application {
     
+    protected boolean old=false;
     private static Empolyee who;
     public static Querier q=new Querier();
     private static Stage st;
@@ -38,6 +39,7 @@ public class MainApp extends Application {
 
      void changeScene(String where) throws IOException {
         if ("karshenas".equals(where)){
+            old=false;
             current=new Ezharname();
             Parent kareshenas = FXMLLoader.load(getClass().getResource("/fxml/ezharname.fxml"));
             Scene scene = new Scene(kareshenas);
@@ -47,6 +49,7 @@ public class MainApp extends Application {
             st.show();
         }
         else if ("register".equals(where)){
+            old=false;
             Parent register = FXMLLoader.load(getClass().getResource("/fxml/register.fxml"));
             Scene scene = new Scene(register);
             scene.getStylesheets().add("/styles/Styles.css");
@@ -56,12 +59,35 @@ public class MainApp extends Application {
         }
         
         else if ("main".equals(where)){
+            old=false;
             Parent main = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
             Scene scene = new Scene(main);
             scene.getStylesheets().add("/styles/Styles.css");
             st.setTitle("گمرک مرکزی هرات،جمهوری افغانستان");
             st.setScene(scene);
             st.show();
+        }
+        else if ("mojavez-new".equals(where)){
+            old=false;
+            Stage second_stage=new Stage();
+            Parent m = FXMLLoader.load(getClass().getResource("/fxml/mojavez.fxml"));
+            Scene scene = new Scene(m);
+            scene.getStylesheets().add("/styles/Styles.css");
+            second_stage.setTitle("مجوز ها");
+            second_stage.setScene(scene);
+            second_stage.show();
+            
+        }
+        else if ("mojavezRule".equals(where)){
+            old=false;
+            current= new MojavezRule();
+            Parent m = FXMLLoader.load(getClass().getResource("/fxml/mojavezRule.fxml"));
+            Scene scene = new Scene(m);
+            scene.getStylesheets().add("/styles/Styles.css");
+            st.setTitle("گمرک مرکزی هرات،جمهوری افغانستان");
+            st.setScene(scene);
+            st.show();
+            
         }
     }
 
