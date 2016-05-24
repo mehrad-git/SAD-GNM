@@ -125,6 +125,14 @@ public class Ezharname {
         bar.add(temp);
     }
     
+    public Mahmoole getWay(int id){
+        return bar.get(id);
+    }
+    
+    public int get_way_count(){
+        return bar.size();
+    }
+    
     public void searchRules() {
         rule_id.clear();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -268,9 +276,9 @@ public class Ezharname {
                country=rs.getString(5);
                number=rs.getString(6);
                date=rs.getString(7);
+               this.id=id;
                searchKala();
                retrieveRules();
-               this.id=id;
             }
             
         } catch (SQLException ex){
@@ -278,7 +286,36 @@ public class Ezharname {
         }
     }
     
+    public String getName(){
+        return this.name;
+    }
+    
+    public String getFname(){
+        return fname;
+    }
+    
+    public String getCountry(){
+        return country;
+    }
+    
+    public String getNumber(){
+        return number;
+    }
+    
     public Ezharname(){
         
+    }
+    
+    protected void tayeed(int i){
+        rule_id.get(i).status=true;
+        try{
+                java.sql.PreparedStatement pst=MainApp.q.getPST("update ezhar_mojavez set state=? where ezhar_id=? and rule=?;");
+                pst.setInt(1,1);
+                pst.setInt(2, id);
+                pst.setInt(3,rule_id.get(i).id);
+                pst.executeUpdate();
+            } catch (SQLException ex){
+                System.out.println("error in tayeed_mojavez: "+ex.getLocalizedMessage());
+            }
     }
 }

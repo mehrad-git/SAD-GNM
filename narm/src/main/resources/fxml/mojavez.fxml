@@ -11,14 +11,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane  prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hpc.narm.FXMLControllerMojavez">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hpc.narm.FXMLControllerMojavez">
    <children>
       <Label fx:id="l1" layoutX="284.0" layoutY="89.0" prefHeight="16.0" prefWidth="171.0" />
-      <Button fx:id="b1" layoutX="190.0" layoutY="84.0" mnemonicParsing="false" text="تایید" />
-      <Button fx:id="b2" layoutX="190.0" layoutY="132.0" mnemonicParsing="false" text="تایید" />
-      <Button fx:id="b3" layoutX="190.0" layoutY="181.0" mnemonicParsing="false" text="تایید" />
-      <Button fx:id="b4" layoutX="190.0" layoutY="228.0" mnemonicParsing="false" text="تایید" />
-      <Button fx:id="b5" layoutX="190.0" layoutY="276.0" mnemonicParsing="false" text="تایید" />
+      <Button fx:id="b1" layoutX="190.0" layoutY="84.0" mnemonicParsing="false" onAction="#tayeed1" text="تایید" />
+      <Button fx:id="b2" layoutX="190.0" layoutY="132.0" mnemonicParsing="false" onAction="#tayeed2" text="تایید" />
+      <Button fx:id="b3" layoutX="190.0" layoutY="181.0" mnemonicParsing="false" onAction="#tayeed3" text="تایید" />
+      <Button fx:id="b4" layoutX="190.0" layoutY="228.0" mnemonicParsing="false" onAction="#tayeed4" text="تایید" />
+      <Button fx:id="b5" layoutX="190.0" layoutY="276.0" mnemonicParsing="false" onAction="#tayeed5" text="تایید" />
       <Label fx:id="l2" layoutX="284.0" layoutY="137.0" prefHeight="16.0" prefWidth="171.0" />
       <Label fx:id="l3" layoutX="294.0" layoutY="186.0" prefHeight="16.0" prefWidth="171.0" />
       <Label fx:id="l4" layoutX="294.0" layoutY="233.0" prefHeight="16.0" prefWidth="171.0" />

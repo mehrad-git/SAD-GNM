@@ -43,7 +43,7 @@ public class FXMLController implements Initializable {
             error.setVisible(true);
         else {
             error.setVisible(false);
-            MainApp.getMain().changeScene("karshenas");
+            MainApp.getMain().changeScene("home");
         }
     }
     
@@ -54,8 +54,11 @@ public class FXMLController implements Initializable {
     
     @FXML
     private void test(ActionEvent event) throws IOException{
-        MainApp.getMain().changeScene("mojavezRule");
+        //MainApp.getMain().changeScene("mojavezRule");
+        MainApp.getMain().retrieve_ezharname(3);
     }
+    
+    
     
     public void initialize(URL url, ResourceBundle rb){
         error.setVisible(false);

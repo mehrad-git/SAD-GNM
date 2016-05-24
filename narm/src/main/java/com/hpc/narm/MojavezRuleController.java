@@ -52,6 +52,11 @@ public class MojavezRuleController implements Initializable {
         MainApp.getMain().changeScene("karshenas");
     }
     
+    @FXML
+    private void back(ActionEvent event) throws IOException{
+        MainApp.getMain().changeScene("home");
+    }
+    
     
     public void initialize(URL url, ResourceBundle rb){
         message.setVisible(false);

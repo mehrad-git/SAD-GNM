@@ -18,7 +18,8 @@ import javafx.scene.layout.Pane;
 
 public class FXMLController2 implements Initializable {
     
-    private boolean old=false;
+    //private boolean old=false;
+    private int way_id=0; 
     @FXML
     private TextField name,fname,id,way,cost,country,number,mname,mnumber,mmass,mcompany,mprice;
     @FXML
@@ -56,7 +57,7 @@ public class FXMLController2 implements Initializable {
     
     @FXML
     private void l(ActionEvent event) throws IOException{
-        if (old)
+        if (MainApp.getMain().old)
             MainApp.getMain().changeScene("mojavez-old");
         else{
             Ezharname ez=(Ezharname) MainApp.getMain().get_current();
@@ -66,13 +67,43 @@ public class FXMLController2 implements Initializable {
         }
     }
     
+    @FXML
+    private void next_ware(ActionEvent event){
+        show_next_ware();
+    }
+    
+    private void show_next_ware(){
+        Ezharname ez=(Ezharname) MainApp.getMain().get_current();
+        if (ez.get_way_count()==0)
+            return;
+        if (way_id >= ez.get_way_count())
+            way_id=0;
+        Mahmoole w=ez.getWay(way_id);
+        mname.setText(w.getName());
+        mcompany.setText(w.getCompany());
+        mnumber.setText(w.getNumber());
+        mmass.setText(String.valueOf(w.getMass()));
+        mprice.setText(String.valueOf(w.getPrice()));
+        way_id++;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb){
         message.setVisible(false);
-        old=false;
+        if (MainApp.getMain().old){
+            Ezharname ez=(Ezharname) MainApp.getMain().get_current();
+            name.setText(ez.getName());
+            fname.setText(ez.getFname());
+            cost.setText(String.valueOf(ez.estimateCost()));
+            country.setText(ez.getCountry());
+            number.setText(ez.getNumber());
+            show_next_ware();
+        }
+    }
+    
+    @FXML
+    private void back(ActionEvent event) throws IOException{
+        MainApp.getMain().changeScene("home");
     }
 
-    public void setOld(){
-        old=true;
-    }
 }

@@ -41,5 +41,6 @@
       <Label layoutX="335.0" layoutY="133.0" prefHeight="17.0" prefWidth="87.0" text="حداکثرقیمت کل" />
       <TextField fx:id="desc" layoutX="7.0" layoutY="438.0" prefHeight="111.0" prefWidth="337.0" />
       <Label layoutX="373.0" layoutY="430.0" text="توضیح" />
+      <Button layoutX="33.0" layoutY="568.0" mnemonicParsing="false" onAction="#back" text="Back" />
     </children>
 </AnchorPane>

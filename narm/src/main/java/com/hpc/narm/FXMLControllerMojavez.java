@@ -72,6 +72,41 @@ public class FXMLControllerMojavez implements Initializable {
         }
     }
     
+    @FXML
+    private void tayeed1(ActionEvent event){
+        ez=(Ezharname) MainApp.getMain().get_current();
+        ez.tayeed(5*(page-1)+0);
+        b1.setDisable(true);
+    }
+    
+    @FXML
+    private void tayeed2(ActionEvent event){
+        ez=(Ezharname) MainApp.getMain().get_current();
+        ez.tayeed(5*(page-1)+1);
+        b2.setDisable(true);
+    }
+    
+    @FXML
+    private void tayeed3(ActionEvent event){
+        ez=(Ezharname) MainApp.getMain().get_current();
+        ez.tayeed(5*(page-1)+2);
+        b3.setDisable(true);
+    }
+    
+    @FXML
+    private void tayeed4(ActionEvent event){
+        ez=(Ezharname) MainApp.getMain().get_current();
+        ez.tayeed(5*(page-1)+3);
+        b4.setDisable(true);
+    }
+    
+    @FXML
+    private void tayeed5(ActionEvent event){
+        ez=(Ezharname) MainApp.getMain().get_current();
+        ez.tayeed(5*(page-1)+4);
+        b5.setDisable(true);
+    }
+    
     public void  DisableTayeed(){
         Button[] b={b1,b2,b3,b4,b5};
         for (Button t : b){

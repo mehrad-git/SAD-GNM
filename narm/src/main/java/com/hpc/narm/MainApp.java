@@ -37,12 +37,21 @@ public class MainApp extends Application {
         return who;
     }
 
-     void changeScene(String where) throws IOException {
-        if ("karshenas".equals(where)){
+    protected void changeScene(String where) throws IOException {
+        if ("home".equals(where)){
+            old=false;
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/HomeK.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+            st.setTitle("گمرک مرکزی هرات،جمهوری افغانستان");
+            st.setScene(scene);
+            st.show();
+        }
+        else if ("ezharname".equals(where)){
             old=false;
             current=new Ezharname();
-            Parent kareshenas = FXMLLoader.load(getClass().getResource("/fxml/ezharname.fxml"));
-            Scene scene = new Scene(kareshenas);
+            Parent ez = FXMLLoader.load(getClass().getResource("/fxml/ezharname.fxml"));
+            Scene scene = new Scene(ez);
             scene.getStylesheets().add("/styles/Styles.css");
             st.setTitle("گمرک مرکزی هرات،جمهوری افغانستان");
             st.setScene(scene);
@@ -78,6 +87,17 @@ public class MainApp extends Application {
             second_stage.show();
             
         }
+        else if ("mojavez-old".equals(where)){
+            old=true;
+            Stage second_stage=new Stage();
+            Parent m = FXMLLoader.load(getClass().getResource("/fxml/mojavez.fxml"));
+            Scene scene = new Scene(m);
+            scene.getStylesheets().add("/styles/Styles.css");
+            second_stage.setTitle("مجوز ها");
+            second_stage.setScene(scene);
+            second_stage.show();
+            
+        }
         else if ("mojavezRule".equals(where)){
             old=false;
             current= new MojavezRule();
@@ -89,7 +109,23 @@ public class MainApp extends Application {
             st.show();
             
         }
+        else if ("ezharname_old".equals(where)){
+            old=true;
+            Parent ezharname_page = FXMLLoader.load(getClass().getResource("/fxml/ezharname.fxml"));
+            Scene scene = new Scene(ezharname_page);
+            scene.getStylesheets().add("/styles/Styles.css");
+            st.setTitle("گمرک مرکزی هرات،جمهوری افغانستان");
+            st.setScene(scene);
+            st.show();
+        }
     }
+    
+    protected void retrieve_ezharname(int id) throws IOException{
+        current=new Ezharname(id);
+        changeScene("ezharname_old");
+    }
+     
+    
 
     @Override
     public void start(Stage stage) throws Exception {
