@@ -13,6 +13,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -88,7 +91,7 @@ public class Ezharname {
         return cost;
     }
     
-    public int sabt(){
+    public int sabt() throws ParseException{
         //
         searchRules();
         java.sql.PreparedStatement pst=MainApp.q.getPST("insert into ezhars (name,fname,cost,country,number,date) values(?,?,?,?,?,?);",Statement.RETURN_GENERATED_KEYS);
@@ -133,86 +136,31 @@ public class Ezharname {
         return bar.size();
     }
     
-    public void searchRules() {
+    public void searchRules() throws ParseException {
         rule_id.clear();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        java.sql.PreparedStatement pst=MainApp.q.getPST("select * from rules");
-        try{
-            ResultSet rs=pst.executeQuery();
-            while (rs.next()){
-                Long cost_up = rs.getLong(3);
-                if (rs.wasNull()){
-                    cost_up=null;
-                }
-                Long cost_down = rs.getLong(4);
-                if (rs.wasNull()){
-                    cost_down=null;
-                }
-                String _country=rs.getString(5);
-                if (rs.wasNull()){
-                    _country=null;
-                }
-                String temp=rs.getString(6);
-                Date date_up;
-                if (rs.wasNull()){
-                    date_up=null;
-                }
-                else{
-                    date_up=(Date) formatter.parse(temp);
-                }
-                temp=rs.getString(7);
-                Date date_down;
-                if (rs.wasNull()){
-                    date_down=null;
-                }
-                else{
-                    date_down=(Date) formatter.parse(temp);
-                }
-                String kala_name=rs.getString(8);
-                if (rs.wasNull()){
-                    kala_name=null;
-                }
-                String kala_company=rs.getString(9);
-                if (rs.wasNull()){
-                    kala_company=null;
-                }
-                Double mass_up = rs.getDouble(10);
-                if (rs.wasNull()){
-                    mass_up=null;
-                }
-                Double mass_down = rs.getDouble(11);
-                if (rs.wasNull()){
-                    mass_down=null;
-                }
-                String kala_number=rs.getString(12);
-                if (rs.wasNull()){
-                    kala_number=null;
-                }
-                Long price_up=rs.getLong(13);
-                if (rs.wasNull()){
-                    price_up=null;
-                }
-                Long price_down=rs.getLong(14);
-                if (rs.wasNull()){
-                    price_down=null;
-                }
-                for (Mahmoole m :bar){
-                    long p =m.getPrice();
-                    if ((cost_up==null || cost_up >= p )&& (cost_down==null || cost_down <= p) && (_country==null || _country.equals(this.country)) && (date_up==null || date_up.compareTo(formatter.parse(this.date)) >= 0) && (date_down==null || date_down.compareTo(formatter.parse(this.date)) <= 0) && (kala_name==null || kala_name.equals(m.getName())) && (kala_company==null || kala_company.equals(m.getCompany())) && (mass_up==null || mass_up >= m.getMass()) && (mass_down==null || mass_down <= m.getMass()) && (kala_number==null || kala_number.equals(m.getNumber())) && (price_up==null || price_up >= m.pricePerMass()) && (price_down==null || price_down <= m.pricePerMass()) ){
-                        mojavezStatus temp2 =new mojavezStatus();
-                        temp2.id=rs.getInt(1);
-                        temp2.status=false;
-                        rule_id.add(temp2);
-                    }
-                }
-            }
-        } catch ( SQLException ex){
-            System.out.println("error in search rules: "+ex.getLocalizedMessage());
-        } catch (ParseException ex){
-            System.out.println("error in search rules: "+ex.getLocalizedMessage());
-        }
         
+        for (Mahmoole m :bar){
+            long p =m.getPrice();
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Map map=new HashMap<>();
+            map.put("cost",p);
+            map.put("country",this.country);
+            map.put("date",(Date) formatter.parse(this.date));
+            map.put("kala_name",m.getName());
+            map.put("company",m.getCompany());
+            map.put("mass",m.getMass());
+            map.put("kala_number",m.getNumber());
+            map.put("price",m.pricePerMass());
+            List rules=RuleController.getRuleController().compare(map);
+            
+            //if ((cost_up==null || cost_up >= p )&& (cost_down==null || cost_down <= p) && (_country==null || _country.equals(this.country)) && (date_up==null || date_up.compareTo(formatter.parse(this.date)) >= 0) && (date_down==null || date_down.compareTo(formatter.parse(this.date)) <= 0) && (kala_name==null || kala_name.equals(m.getName())) && (kala_company==null || kala_company.equals(m.getCompany())) && (mass_up==null || mass_up >= m.getMass()) && (mass_down==null || mass_down <= m.getMass()) && (kala_number==null || kala_number.equals(m.getNumber())) && (price_up==null || price_up >= m.pricePerMass()) && (price_down==null || price_down <= m.pricePerMass()) ){
+                        //mojavezStatus temp2 =new mojavezStatus();
+                        //temp2.id=rs.getInt(1);
+                        //temp2.status=false;
+                        //rule_id.add(temp2);
+        }
     }
+    
     
     private int sabt_mojavez(int id){
         for (mojavezStatus m:rule_id){

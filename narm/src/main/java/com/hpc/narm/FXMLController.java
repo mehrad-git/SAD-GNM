@@ -55,7 +55,7 @@ public class FXMLController implements Initializable {
     @FXML
     private void test(ActionEvent event) throws IOException{
         //MainApp.getMain().changeScene("mojavezRule");
-        MainApp.getMain().retrieve_ezharname(3);
+        //MainApp.getMain().retrieve_ezharname(3);
     }
     
     
