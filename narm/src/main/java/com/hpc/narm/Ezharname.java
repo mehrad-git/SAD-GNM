@@ -152,7 +152,13 @@ public class Ezharname {
             map.put("kala_number",m.getNumber());
             map.put("price",m.pricePerMass());
             List rules=RuleController.getRuleController().compare(map);
-            
+            for (Object id:rules){
+                int i = (int) id;
+                mojavezStatus temp2 =new mojavezStatus();
+                temp2.id=i;
+                temp2.status=false;
+                rule_id.add(temp2);
+            }
             //if ((cost_up==null || cost_up >= p )&& (cost_down==null || cost_down <= p) && (_country==null || _country.equals(this.country)) && (date_up==null || date_up.compareTo(formatter.parse(this.date)) >= 0) && (date_down==null || date_down.compareTo(formatter.parse(this.date)) <= 0) && (kala_name==null || kala_name.equals(m.getName())) && (kala_company==null || kala_company.equals(m.getCompany())) && (mass_up==null || mass_up >= m.getMass()) && (mass_down==null || mass_down <= m.getMass()) && (kala_number==null || kala_number.equals(m.getNumber())) && (price_up==null || price_up >= m.pricePerMass()) && (price_down==null || price_down <= m.pricePerMass()) ){
                         //mojavezStatus temp2 =new mojavezStatus();
                         //temp2.id=rs.getInt(1);

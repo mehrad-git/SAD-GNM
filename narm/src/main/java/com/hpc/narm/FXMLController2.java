@@ -3,6 +3,7 @@ package com.hpc.narm;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -29,7 +30,7 @@ public class FXMLController2 implements Initializable {
     private Pane message;
     
     @FXML
-    private void sabt(ActionEvent event){
+    private void sabt(ActionEvent event) throws ParseException{
         Ezharname ez=(Ezharname) MainApp.getMain().get_current();
         ez.setEzharname(name.getText(),fname.getText(), country.getText(),number.getText(),date.getValue().toString());
         ez.estimateCost();
@@ -56,7 +57,7 @@ public class FXMLController2 implements Initializable {
     }
     
     @FXML
-    private void l(ActionEvent event) throws IOException{
+    private void l(ActionEvent event) throws IOException, ParseException{
         if (MainApp.getMain().old)
             MainApp.getMain().changeScene("mojavez-old");
         else{

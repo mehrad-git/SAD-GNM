@@ -24,6 +24,8 @@ public class RuleController {
     private List rules=new ArrayList<>();
     private String[] range_fields={"cost","date","mass","price"};
     private static RuleController instance=new RuleController();
+    private boolean updated=false;
+    private RuleController(){}
     public static RuleController getRuleController(){
         return instance;
     }
@@ -31,6 +33,13 @@ public class RuleController {
         rules.clear();
         RuleDB rdb=new RuleDB();
         rules=rdb.getRules();
+        updated=true;
+    }
+    
+    public void load(){
+        if (!updated){
+            this.update();
+        }
     }
     
     public List compare(Map input){
@@ -85,7 +94,15 @@ public class RuleController {
                     
                 }
                 else{
-                    if (rule.get(k) != null  && rule.get(k) != input.get(k)){
+                    if (key == "kala_name"){
+                        String raw = (String)rule.get(k);
+                        String[] names = raw.split("-");
+                        if (!Arrays.asList(names).contains((String)input.get(k))){
+                            matched=false;
+                            break;
+                        }
+                    }
+                    else if (rule.get(k) != null  && !rule.get(k).equals(input.get(k))){
                         matched=false;
                         break;
                     }
@@ -95,6 +112,6 @@ public class RuleController {
                 res.add(rule.get("id"));
         }
         //////
-        return null;
+        return res;
     }
 }

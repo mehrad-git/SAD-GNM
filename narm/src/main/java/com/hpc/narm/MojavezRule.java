@@ -123,6 +123,7 @@ public class MojavezRule {
             System.out.println("error : "+ex.getLocalizedMessage());
             return 1;
         }
+        RuleController.getRuleController().update();
         return 0;
     }
 }

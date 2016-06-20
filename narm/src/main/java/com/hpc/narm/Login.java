@@ -24,6 +24,7 @@ public class Login {
             if (rs.next()){
                 Empolyee emp=new Empolyee(rs.getInt(1),rs.getString(4),rs.getString(5),user,pass,rs.getString(6));
                 MainApp.setWho(emp);
+                RuleController.getRuleController().load();
                 return 0;
             }
         } catch (SQLException ex){
