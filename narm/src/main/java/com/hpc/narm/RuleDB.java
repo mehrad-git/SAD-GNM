@@ -20,7 +20,7 @@ import java.util.Map;
  * @author Mehrad
  */
 public class RuleDB {
-    protected List getRules(){
+    public List getRules(){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         java.sql.PreparedStatement pst=MainApp.q.getPST("select * from rules");
         List rules=new ArrayList<>();
@@ -117,5 +117,9 @@ public class RuleDB {
             System.out.println("error 3366"+ex.getLocalizedMessage());
         }
         return rules;
+    }
+    
+    public int test(){
+        return 2;
     }
 }

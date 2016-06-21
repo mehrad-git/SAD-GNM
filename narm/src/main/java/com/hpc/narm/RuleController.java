@@ -95,6 +95,8 @@ public class RuleController {
                 }
                 else{
                     if (key == "kala_name"){
+                        if (rule.get(k) == null)
+                            continue;
                         String raw = (String)rule.get(k);
                         String[] names = raw.split("-");
                         if (!Arrays.asList(names).contains((String)input.get(k))){
